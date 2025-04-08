@@ -159,12 +159,12 @@
                 <p id="button-more-products">Ver mais</p>
             </div>
             
-            <div class="carousel-container">
+            <div class="carousel-container-card01">
                 <button class="carousel-btn prev-1" onclick="prevPage01()">
                     <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
                 </button>
             
-                <div class="carousel">
+                <div class="carousel-card01">
                     <div class="cards" id="cards-container-1">
                     </div>
                 </div>
@@ -216,12 +216,12 @@
                 <p id="button-more-products">Ver mais</p>
             </div>
             
-            <div class="carousel-container">
+            <div class="carousel-container-card02">
                 <button class="carousel-btn prev-2" onclick="prevPage02()">
                     <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
                 </button>
             
-                <div class="carousel">
+                <div class="carousel-card02">
                     <div class="cards" id="cards-container-2">
                     </div>
                 </div>
@@ -322,7 +322,7 @@
 
         <header>
             <div class="navbar-header">
-                <div class="navbar-button">
+                <div class="navbar-button-mobile" onclick="toggleDropdownMobile()">
                     <div class="navbar-burgerButton">
                         <img src="assets/img/burger-button.svg" alt="Menu">
                     </div>
@@ -336,9 +336,100 @@
                 </div>
             </div>
 
-            <div class="container-search">
-                <input type="text" id="search-input" placeholder="Digite aqui o que você procura">
-                <img src="assets/img/search-icon.svg" class="search-icon" alt="Buscar">
+            <form class="container-search-form-mobile">
+                <div class="container-search-mobile">
+                    <input type="text" id="search-input-mobile" placeholder="Digite aqui o que você procura">
+                    <img src="assets/img/search-icon.svg" class="search-icon-mobile" alt="Buscar">
+                </div>
+                <div class="result-search-mobile">
+    
+                </div>
+            </form>
+
+            <div class="toggleDropdown-mobile">
+                <div class="scroll-options">
+                    <div class="scroll-option active">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="scroll-option">
+                        <h3>Departamento</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+                <div class="container-toggleDropdown-mobile">
+                    <div class="category-container">
+                        <div class="category">
+                            <h1>Categoria</h1>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                        </div>
+                        <div class="category">
+                            <h1>Categoria</h1>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                        </div>
+                        
+                        <div class="category">
+                            <h1>Categoria</h1>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                            <h3>Categoria</h3>
+                        </div>
+                        <div class="img-toggleDropdown">
+                            <h4>Confira os Produtos <span>Que acabaram De chegar</span></h4> 
+                            
+                            <button>VER TODOS</button>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </header>
 
@@ -362,12 +453,12 @@
                 <p id="button-more-products">Ver mais</p>
             </div>
             
-            <div class="carousel-container">
+            <div class="carousel-container-mobile">
                 <button class="carousel-btn prev-mobile" onclick="prevPageMobile()">
                     <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
                 </button>
             
-                <div class="carousel">
+                <div class="carousel-mobile">
                     <div class="cards" id="cards-container-mobile">
                     </div>
                 </div>
@@ -464,14 +555,59 @@
                         </div>
                     </div>
                     <div class="select-container">
-                        <div class="select-institucional">
+                        <div class="select-institucional" onclick="showAccordionInstitutional()">
                             <h3>&lt;h4&gt;<span> Institucional</span></h3>
+                            
                         </div>
-                        <div class="select-central">
+                        <div class="optionsAccordionInstitutional">
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Sobre Nós</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Nossas Lojas</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Privacidade e Segurança</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Termos e Condições</p>
+                            </div>
+                        </div>
+                        <div class="select-central" onclick="showAccordionCentral()">
                             <h3>&lt;h4&gt;<span> Central de ajuda</span></h3>
                         </div>
-                        <div class="select-atendimento">
+                        <div class="optionsAccordionCentral">
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Fale Conosco</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Frete e Entrega</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Trocas e Devoluções</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> Formas de Pagamento</p>
+                            </div>
+                            <div>
+                                <p><span>&lt;h5&gt;</span> FAQ</p>
+                            </div>
+                        </div>
+                        <div class="select-atendimento" onclick="showAccordionAtendimento()">
                             <h3>&lt;h4&gt; <span>Atendimento</span></h3>
+                        </div>
+                        <div class="optionsAccordionAtendimento">
+                            <div>
+                                <p>&lt;h5&gt; <span>Telefone:</span> (00) 1234-5678</p>
+                            </div>
+                            <div>
+                                <p>&lt;h5&gt; <span>E-mail:</span> exemplo@exemplo.com.br</p>
+                            </div>
+                            <div>
+                                <p>&lt;h5&gt; <span>Horário de atendimento:</span></p>
+                                <p>Segunda a sábado: 07h00 às 23h00</p>
+                                <p>Domingos e Feriados: 07h00 às 21h00</p>
+                            </div>
                         </div>
                     </div>
 
