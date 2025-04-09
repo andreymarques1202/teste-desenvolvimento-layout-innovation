@@ -428,68 +428,49 @@ function showAccordionAtendimento() {
     }
 }
 
-function autoSlideDesktop01() {
-    currentPage.card01 = (currentPage.card01 + 1) % totalPagesDesktop;
-    generateCards01();
-    generatePagination01();
-    updateNavigationButtons();
-}
 
-function autoSlideDesktop02() {
-    currentPage.card02 = (currentPage.card02 + 1) % totalPagesDesktop;
-    generateCards02();
-    generatePagination02();
-    updateNavigationButtons02();
-}
 
-function autoSlideMobile() {
-    currentPage.cardMobile = (currentPage.cardMobile + 1) % totalPagesMobile;
-    generateCardsMobile();
-    generatePaginationMobile();
-    updateNavigationButtonsMobile();
-}
 
-let autoSlideInterval01, autoSlideInterval02, autoSlideIntervalMobile;
+function addSwipeEvents(container, nextFunc, prevFunc) {
+    let startX = 0;
+    let endX = 0;
 
-function startAutoSlide() {
-    clearInterval(autoSlideInterval01);
-    clearInterval(autoSlideInterval02);
-    clearInterval(autoSlideIntervalMobile);
+    container.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        container.classList.add('no-select');
+    });
 
-    if (window.innerWidth > 768) {
-        autoSlideInterval01 = setInterval(autoSlideDesktop01, 3000);
-        autoSlideInterval02 = setInterval(autoSlideDesktop02, 3000);
-    } else {
-        autoSlideIntervalMobile = setInterval(autoSlideMobile, 3000);
+    container.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+        container.classList.remove('no-select');
+    });
+
+    container.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
+        container.classList.add('no-select');
+    });
+
+    container.addEventListener("mouseup", (e) => {
+        endX = e.clientX;
+        handleSwipe();
+        container.classList.remove('no-select');
+    });
+
+    function handleSwipe() {
+        const diffX = endX - startX;
+        const threshold = 50;
+
+        if (diffX > threshold) {
+            prevFunc();
+        } else if (diffX < -threshold) {
+            nextFunc();
+        }
     }
 }
 
-function setupSlideHoverEvents() {
-    const containers = [
-        { container: container01, interval: autoSlideInterval01 },
-        { container: container02, interval: autoSlideInterval02 },
-        { container: containerMobile, interval: autoSlideIntervalMobile }
-    ];
-
-    containers.forEach(({ container, interval }) => {
-        if (container) {
-            container.addEventListener("mouseenter", () => {
-                clearInterval(interval);
-            });
-
-            container.addEventListener("mouseleave", () => {
-                startAutoSlide();
-            });
-        }
-    });
-}
 
 
-
-window.addEventListener("resize", () => {
-    startAutoSlide();
-    widthScreen();
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     widthScreen();
@@ -500,9 +481,10 @@ document.addEventListener("DOMContentLoaded", () => {
     generateCards02();
     generatePagination02();
 
-    startAutoSlide();
+    addSwipeEvents(container01, nextPage01, prevPage01);
+    addSwipeEvents(container02, nextPage02, prevPage02);
+    addSwipeEvents(containerMobile, nextPageMobile, prevPageMobile);
 
-    setupSlideHoverEvents();
 
     console.log(window.scrollY)
 

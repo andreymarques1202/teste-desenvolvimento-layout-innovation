@@ -992,3 +992,9 @@ footer {
 .navbar-button.active {
     color: #005cff;
 }
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
