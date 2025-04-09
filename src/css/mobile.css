@@ -1,4 +1,8 @@
 @media only screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
     .desktop-content {
         display: none;
     }
@@ -8,7 +12,19 @@
     }
 
     header {
-        padding-bottom: 10px;
+        position: relative;
+        z-index: 0;
+        background-color: #fff;
+        transition: all 0.8s ease-in-out;
+    }
+      
+    .container-navFixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .title-top-mobile {
@@ -76,7 +92,7 @@
     }
 
     .img-banner > img{
-        width: 250px;
+        width: 100%;
         height: 306px;
         float: left;
     }

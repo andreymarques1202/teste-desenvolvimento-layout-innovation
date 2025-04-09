@@ -77,7 +77,7 @@ const generateCardsMobile = () => {
                 <p>Novo</p>
             </div>
             <img src="${product.image}" alt="Foto do produto">
-            <h3><span>&lt;h3&gt;</span> Lorem ipsum dolor sit amet, consectetuer adipiscing elit<span>&lt;/h3&gt;</span></h3>
+            <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h3>
             <div class="price-container-mobile">
                 <div>
                     <p class="old-price-mobile">${product.oldPrice}</p>
@@ -108,7 +108,7 @@ const generateCards01 = () => {
                 <p>Novo</p>
             </div>
             <img src="${product.image}" alt="Foto do produto">
-            <h3><span>&lt;h3&gt;</span> Lorem ipsum dolor sit amet, consectetuer adipiscing elit<span>&lt;/h3&gt;</span></h3>
+            <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h3>
             <div class="price-container-card01">
                 <div>
                     <p class="old-price-card01">${product.oldPrice}</p>
@@ -139,7 +139,7 @@ const generateCards02 = () => {
                 <p>Novo</p>
             </div>
             <img src="${product.image}" alt="Foto do produto">
-            <h3><span>&lt;h3&gt;</span> Lorem ipsum dolor sit amet, consectetuer adipiscing elit<span>&lt;/h3&gt;</span></h3>
+            <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h3>
             <div class="price-container-card02">
                 <div>
                     <p class="old-price-card02">${product.oldPrice}</p>
@@ -313,6 +313,7 @@ function nextPageMobile() {
     }
 };
 
+
 function toggleDropdown() {
     const Dropdown = document.querySelector(".toggleDropdown");
     
@@ -427,7 +428,68 @@ function showAccordionAtendimento() {
     }
 }
 
+function autoSlideDesktop01() {
+    currentPage.card01 = (currentPage.card01 + 1) % totalPagesDesktop;
+    generateCards01();
+    generatePagination01();
+    updateNavigationButtons();
+}
 
+function autoSlideDesktop02() {
+    currentPage.card02 = (currentPage.card02 + 1) % totalPagesDesktop;
+    generateCards02();
+    generatePagination02();
+    updateNavigationButtons02();
+}
+
+function autoSlideMobile() {
+    currentPage.cardMobile = (currentPage.cardMobile + 1) % totalPagesMobile;
+    generateCardsMobile();
+    generatePaginationMobile();
+    updateNavigationButtonsMobile();
+}
+
+let autoSlideInterval01, autoSlideInterval02, autoSlideIntervalMobile;
+
+function startAutoSlide() {
+    clearInterval(autoSlideInterval01);
+    clearInterval(autoSlideInterval02);
+    clearInterval(autoSlideIntervalMobile);
+
+    if (window.innerWidth > 768) {
+        autoSlideInterval01 = setInterval(autoSlideDesktop01, 3000);
+        autoSlideInterval02 = setInterval(autoSlideDesktop02, 3000);
+    } else {
+        autoSlideIntervalMobile = setInterval(autoSlideMobile, 3000);
+    }
+}
+
+function setupSlideHoverEvents() {
+    const containers = [
+        { container: container01, interval: autoSlideInterval01 },
+        { container: container02, interval: autoSlideInterval02 },
+        { container: containerMobile, interval: autoSlideIntervalMobile }
+    ];
+
+    containers.forEach(({ container, interval }) => {
+        if (container) {
+            container.addEventListener("mouseenter", () => {
+                clearInterval(interval);
+            });
+
+            container.addEventListener("mouseleave", () => {
+                startAutoSlide();
+            });
+        }
+    });
+}
+
+
+
+window.addEventListener("resize", () => {
+    startAutoSlide();
+    widthScreen();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     widthScreen();
@@ -437,5 +499,22 @@ document.addEventListener("DOMContentLoaded", () => {
     generatePagination01();
     generateCards02();
     generatePagination02();
+
+    startAutoSlide();
+
+    setupSlideHoverEvents();
+
+    console.log(window.scrollY)
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header-mobile');
+        const scrollThreshold = 1;
+    
+        if (window.scrollY >= scrollThreshold) {
+          header.classList.add('container-navFixed');
+        } else {
+          header.classList.remove('container-navFixed');
+        }
+      });
 
 });
