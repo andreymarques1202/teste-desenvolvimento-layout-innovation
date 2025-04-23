@@ -167,7 +167,7 @@
         margin: 20px;
     }
     
-    .card-container-mobile, .card-container-card01, .card-container-card02 {
+    .card-container-mobile {
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 10px;
@@ -175,7 +175,7 @@
         box-sizing: border-box;
     }
     
-    .new-title-product-mobile, .new-title-product-card01, .new-title-product-card02 {
+    .new-title-product-mobile {
         width: 41px;
         height: 23px;
         background-color: #00264e;
@@ -192,11 +192,11 @@
         font-size: 12px;
     }
     
-    .card-container-mobile > img, .card-container-card01 > img, .card-container-card02 > img{
+    .card-container-mobile > img {
         width: 158px;
     }
     
-    .card-container-mobile > h3, .card-container-card01 > h3, .card-container-card02 > h3 {
+    .card-container-mobile > h3 {
         font-family: "nunito-sans";
         font-size: 14px;
         font-weight: 500;
@@ -205,33 +205,32 @@
         padding: 10px 0;
     }
     
-    .card-container-mobile > h3 > span, 
-    .card-container-card01 > h3 > span, 
-    .card-container-card02 > h3 > span  {
+    .card-container-mobile > h3 > span  {
         color: #303030;
     }
     
-    .price-container-mobile, .price-container-card01, .price-container-card02 {
+    .price-container-mobile {
         display: flex;
         align-items: center;
         gap: 10px;
         line-height: 100%;
     }
     
-    .old-price-mobile, .old-price-card01, .old-price-card02 {
+    .old-price-mobile {
         font-family: "nunito-sans";
         font-weight: 400;
         font-size: 12px;
         text-decoration: line-through;
     }
     
-    .price-mobile, .price-card01, .price-card02{
+    .price-container-mobile {
         font-family: "nunito-sans";
         font-weight: 700;
         font-size: 16px;
+        line-height: 30px
     }
     
-    .price-off-mobile, .price-off-card01, .price-off-card02{
+    .price-off-mobile {
         background-color: #5ec0be;
         color: #fff;
         font-family: "nunito-sans";
@@ -243,16 +242,14 @@
         margin-bottom: 5px;
     }
     
-    .option-price-mobile, .option-price-card01, .option-price-card02 {
+    .option-price-mobile {
         font-family: "nunito-sans";
         font-weight: 400;
         font-size: 12px;
         color: #303030;
     }
     
-    .option-price-mobile > span,
-    .option-price-card01 > span,
-    .option-price-card02 > span {
+    .option-price-mobile > span {
         font-weight: 700;
     }
     
@@ -275,41 +272,7 @@
         max-width: 1200px;
         margin: auto;
     }
-    
-    .carousel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s ease;
-    }
-    
-    .carousel-btn img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .prev-mobile {
-        left: 1px;
-    }
-    
-    .next-mobile{
-        right: 1px;
-    }
-    
-    #pagination-container-mobile {
-        text-align: center;
-        margin-top: 20px;
-    }
+
 
     .main-01 {
         width: 100%;

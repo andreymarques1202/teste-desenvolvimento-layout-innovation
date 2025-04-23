@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/mobile.css" media="(max-width: 768px)">
     <script src="https://kit.fontawesome.com/ad1e7a4d73.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
 
@@ -159,22 +161,15 @@
                 <p id="button-more-products">Ver mais</p>
             </div>
             
-            <div class="carousel-container-card01">
-                <button class="carousel-btn prev-1" onclick="prevPage01()">
-                    <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
-                </button>
-            
-                <div class="carousel-card01">
-                    <div class="cards" id="cards-container-1">
-                    </div>
+           <div class="carousel-container-card01">
+            <div id="cards-container-1" class="swiper">
+                <div class="swiper-wrapper">
+                    
                 </div>
-
-                <div id="pagination-container-1"></div>
-            
-                <button class="carousel-btn next-1" onclick="nextPage01()">
-                    <img src="assets/img/arrowRight-icon.svg" alt="Próximo">
-                </button>
             </div>
+            <div class="swiper-pagination"></div>
+           </div>
+            
         </div>
 
         <div class="main-01">
@@ -217,20 +212,12 @@
             </div>
             
             <div class="carousel-container-card02">
-                <button class="carousel-btn prev-2" onclick="prevPage02()">
-                    <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
-                </button>
-            
-                <div class="carousel-card02">
-                    <div class="cards" id="cards-container-2">
+                <div id="cards-container-2" class="swiper">
+                    <div class="swiper-wrapper">
+                        
                     </div>
                 </div>
-
-                <div id="pagination-container-2"></div>
-            
-                <button class="carousel-btn next-2" onclick="nextPage02()">
-                    <img src="assets/img/arrowRight-icon.svg" alt="Próximo">
-                </button>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
@@ -454,20 +441,12 @@
                 </div>
                 
                 <div class="carousel-container-mobile">
-                    <button class="carousel-btn prev-mobile" onclick="prevPageMobile()">
-                        <img src="assets/img/arrowLeft-icon.svg" alt="Anterior">
-                    </button>
-                
-                    <div class="carousel-mobile">
-                        <div class="cards" id="cards-container-mobile">
+                    <div id="cards-container-mobile" class="swiper">
+                        <div class="swiper-wrapper">
+                            
                         </div>
                     </div>
-    
-                    <div id="pagination-container-mobile"></div>
-                
-                    <button class="carousel-btn next-mobile" onclick="nextPageMobile()">
-                        <img src="assets/img/arrowRight-icon.svg" alt="Próximo">
-                    </button>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
     
