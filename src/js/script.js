@@ -1,4 +1,10 @@
+const navbarButton = document.querySelector(".navbar-button");
+const navbarButtonMobile = document.querySelector(".navbar-button-mobile");
+const Dropdown = document.querySelector(".toggleDropdown");
+const DropdownMobile = document.querySelector(".toggleDropdown-mobile");
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const commonSwiperConfig = {
         slidesPerView: 'auto',
         spaceBetween: 20,
@@ -97,13 +103,13 @@ function generateCards(container, device) {
 }
 
 function setupEventListeners() {
-    const navbarButton = document.querySelector(".navbar-button");
     const searchFormIcon = document.querySelector(".search-icon");
     const searchForm = document.querySelector(".container-search");
     const searchFormIconMobile = document.querySelector(".search-icon-mobile");
     const searchFormMobile = document.querySelector(".container-search-form-mobile");
     
     if (navbarButton) navbarButton.addEventListener("click", toggleDropdown);
+    if (navbarButtonMobile) navbarButtonMobile.addEventListener("click", toggleDropdownMobile);
     if (searchForm) searchForm.addEventListener("submit", handleSearchSubmit);
     if (searchFormIcon) searchFormIcon.addEventListener("click", triggerSearchSubmit);
     if (searchFormMobile) searchFormMobile.addEventListener("submit", handleMobileSearchSubmit);
@@ -133,17 +139,23 @@ function setupEventListeners() {
     });
 }
 
-function toggleDropdown() {
-    const Dropdown = document.querySelector(".toggleDropdown");
-    navbarButton.classList.toggle("active");
-    Dropdown.style.display = navbarButton.classList.contains("active") ? "flex" : "none";
-}
+const toggleDropdown = () => {
+    if (navbarButton && Dropdown) {
+        navbarButton.classList.toggle("active");
+        Dropdown.style.display = navbarButton.classList.contains("active") 
+            ? "flex" 
+            : "none";
+    }
+};
 
-function toggleDropdownMobile() {
-    const Dropdown = document.querySelector(".toggleDropdown-mobile");
-    navbarButton.classList.toggle("active");
-    Dropdown.style.display = navbarButton.classList.contains("active") ? "flex" : "none";
-}
+const toggleDropdownMobile = () => {
+    if (navbarButtonMobile && DropdownMobile) {
+        navbarButtonMobile.classList.toggle("active");
+        DropdownMobile.style.display = navbarButtonMobile.classList.contains("active") 
+            ? "flex" 
+            : "none";
+    }
+};
 
 function handleSearchSubmit(ev) {
     ev.preventDefault();
